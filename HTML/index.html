@@ -1,0 +1,48 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explorar Receitas</title>
+    <link rel="stylesheet" href="../CSS/style.css">
+
+</head>
+<body>
+    <nav class="menu">
+    <ul>
+        <li><a href="index.html">Início</a></li>
+        <li><a href="contato.html">Contato</a></li>
+        <li><a href="receitas.html">Receitas</a></li>
+        <li><a href="ferramentas.html">Ferramentas</a></li>
+    </ul>
+</nav>
+
+    <header>
+        <h1>Explorar Receitas</h1>
+        <p>Encontre as melhores receitas!</p>
+    </header>
+
+    <main>
+        <div class="pesquisa">
+            <input
+                type="text"
+                id="campoBusca"
+                placeholder="Digite o nome de uma receita..."
+            >
+
+            <button id="botaoBuscar">Buscar</button>
+        </div>
+
+        <button id="botaoFavoritos">Ver favoritos</button>
+
+        <h2 id="tituloLista">Receitas</h2>
+
+        <p id="mensagem"></p>
+
+        <div id="listaReceitas" class="receitas"></div>
+    </main>
+
+    <script src="../JS/principal.js"></script>
+</body>
+</html>
