@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contato - Site de Receitas</title>
+  <link rel="stylesheet" href="../CSS/style.css">
+</head>
+<body>
+  <header class="cabecalho">
+    <p class="nomesite">Site de Receitas</p>
+    <button id="botaoEscuro" type="button">Modo escuro</button>
+  </header>
+
+  <nav class="menu">
+    <ul>
+      <li><a href="index.html">Início</a></li>
+      <li><a href="contato.html">Contato</a></li>
+      <li><a href="receitas.html">Receitas</a></li>
+      <li><a href="ferramentas.html">Ferramentas</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <h1>Contato</h1>
+    <p class="subtitulo">Tem uma dúvida ou uma sugestão? Preencha o formulário. Os campos com * são obrigatórios.</p>
+
+    <section class="contato">
+      <article class="cartao">
+        <h2>Envie sua mensagem</h2>
+
+        <!-- novalidate: os avisos de erro são feitos pelo contato.js -->
+        <form id="formularioContato" class="formulario" novalidate>
+          <div class="campo">
+            <label for="nome">Nome *</label>
+            <input type="text" id="nome" name="nome" placeholder="Seu nome" required>
+          </div>
+
+          <div class="campo">
+            <label for="email">E-mail *</label>
+            <input type="email" id="email" name="email" placeholder="voce@exemplo.com" required>
+          </div>
+
+          <div class="campo">
+            <label for="telefone">Telefone</label>
+            <input type="tel" id="telefone" name="telefone" placeholder="(11) 91234-5678">
+          </div>
+
+          <div class="campo">
+            <label for="assunto">Assunto *</label>
+            <select id="assunto" name="assunto" required>
+              <option value="">Selecione um assunto</option>
+              <option value="Dúvida sobre uma receita">Dúvida sobre uma receita</option>
+              <option value="Sugestão de receita">Sugestão de receita</option>
+              <option value="Problema no site">Problema no site</option>
+              <option value="Outro">Outro</option>
+            </select>
+          </div>
+
+          <div class="campo">
+            <label for="pessoas">Para quantas pessoas você costuma cozinhar?</label>
+            <input type="number" id="pessoas" name="pessoas" min="1" max="50" step="1" placeholder="Ex.: 4">
+          </div>
+
+          <div class="campo">
+            <label for="mensagem">Mensagem *</label>
+            <textarea id="mensagem" name="mensagem" placeholder="Escreva sua mensagem" required></textarea>
+          </div>
+
+          <p id="avisoErro" role="alert"></p>
+          <p id="confirmacao" role="status"></p>
+
+          <button type="submit" id="botaoEnviar">Enviar mensagem</button>
+        </form>
+      </article>
+
+      <aside class="cartao">
+        <h2>Como funciona</h2>
+        <p>Ao enviar, o formulário faz um POST para o JSONPlaceholder, que é um serviço de testes.</p>
+        <p>Ele finge que salva a mensagem e responde com o status 201. Esse status aparece aqui na tela como confirmação.</p>
+      </aside>
+    </section>
+  </main>
+
+  <footer class="rodape">
+    <p>Projeto Final - RA 3 - 2026</p>
+  </footer>
+
+  <script src="../JS/escuro.js"></script>
+  <script src="../JS/contato.js"></script>
+</body>
+</html>
