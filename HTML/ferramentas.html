@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Calculadora de porções</title>
+  <link rel="stylesheet" href="../CSS/style.css">
+</head>
+<body>
+    <nav class="menu">
+      <ul>
+        <li><a href="index.html">Início</a></li>
+        <li><a href="contato.html">Contato</a></li>
+        <li><a href="receitas.html">Receitas</a></li>
+        <li><a href="ferramentas.html">Ferramentas</a></li>
+      </ul>
+    </nav>
+  <main class="ferramentas">
+    <section class="calculadora">
+    <h1>Calculadora de porções</h1>
+    <article class="cartaocalculadora">
+    <p class="subtitulo">Escolha a receita e ajuste os ingredientes para quantas pessoas quiser.</p>
+      <div class="campo">
+        <label for="receita">Receita:</label>
+        <select id="receita"></select>
+      </div>
+      <div class="linha">
+        <div class="campo">
+          <label for="original">Porções da receita:</label>
+          <input type="number" id="original" min="1" step="1">
+        </div>
+        <div class="campo">
+          <label for="desejada">Porções desejadas:</label>
+          <input type="number" id="desejada" min="1" step="1" value="2">
+        </div>
+      </div>
+      <button id="calcular">Calcular ingredientes</button>
+      <p id="erro" role="alert"></p>
+
+      <div id="resultado" hidden>
+        <h2 id="tituloResultado"></h2>
+        <span class="fator" id="fator"></span>
+        <ul id="lista"></ul>
+      </div>
+    </article>
+    </section>
+
+<section class="Partefavoritos">
+    <article class="cartao">
+      <h2>Minhas receitas</h2>
+      <ul id="listaReceitas"></ul>
+    </article>
+
+<article class="cartao" id="estatisticas">
+  <h2>Estatísticas de favoritos</h2>
+  <p>Receitas favoritas: <strong id="statQtdFavoritas">0</strong></p>
+  <p>Média de ingredientes (favoritas): <strong id="statMediaFavoritas">0</strong></p>
+  <p>Média de ingredientes (todas): <strong id="statMediaGeral">0</strong></p>
+</article>
+</section>
+  </main>
+
+<script src="../JS/ferramentas.js"></script>
+</body>
+</html>

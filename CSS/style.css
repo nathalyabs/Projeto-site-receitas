@@ -13,7 +13,7 @@ body {
 }
 
 header {
-    background-color: #e98b45;
+    background-color: #d11313; 
     color: white;
     text-align: center;
     padding: 30px;
@@ -29,7 +29,7 @@ main {
     margin: 30px auto;
 }
 .menu {
-    background-color: #b1530b;
+    background-color: #be0606;
     padding: 20px;
 }
 
@@ -65,7 +65,7 @@ input {
 
 button {
     padding: 12px 18px;
-    background-color: #e98b45;
+    background-color: #be0606;
     color: white;
     border: none;
     border-radius: 5px;
@@ -95,6 +95,8 @@ h2 {
     border-radius: 10px;
     overflow: hidden;
     box-shadow: 0 2px 8px #00000015;
+    text-decoration: none;
+    padding: 10px;
 }
 
 .cartao img {
@@ -125,4 +127,49 @@ h2 {
     .pesquisa {
         flex-direction: column;
     }
+}
+.ferramentas{
+  display: flex;
+  padding: 20px;
+  gap: 100px;
+  justify-content: center;
+
+
+  
+}
+
+.calculadora {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px;
+
+}
+
+.Partefavoritos {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 800px;
+  height: 1000px;
+}
+#receita {
+padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+.cartaocalculadora {
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px #00000015;
+    text-decoration: none;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+.linha{
+  display: flex;
+  gap: 20px;
 }
