@@ -1,17 +1,5 @@
-// ==========================================
-// 1. DADOS DO LOCALSTORAGE
-// ==========================================
-
-// Receitas pesquisadas na página Receitas
 let receitasAPI = JSON.parse(localStorage.getItem("receitasAPI")) || [];
-
-// Receitas favoritas
 let favoritos = JSON.parse(localStorage.getItem("favoritos")) || [];
-
-
-// ==========================================
-// 2. ELEMENTOS DO HTML
-// ==========================================
 
 const receitaSelect = document.getElementById("receita");
 const porcoesOriginais = document.getElementById("original");
@@ -29,10 +17,7 @@ const statQtdFavoritas = document.getElementById("statQtdFavoritas");
 const statMediaFavoritas = document.getElementById("statMediaFavoritas");
 const statMediaGeral = document.getElementById("statMediaGeral");
 
-
-// ==========================================
-// 3. FUNÇÕES MATEMÁTICAS
-// ==========================================
+// Funções matemáticas básicas(TDE 01)
 
 function somar(a, b) {
     return a + b;
@@ -53,19 +38,12 @@ function dividir(a, b) {
     return a / b;
 }
 
-
-// ==========================================
-// 4. FORMATANDO NÚMEROS (2 casas, vírgula)
-// ==========================================
+//Formatando números(2 casas decimais e vírgula como separador decimal)
 
 function formatar(numero) {
     return Number(numero.toFixed(2)).toString().replace(".", ",");
 }
 
-
-// ==========================================
-// 5. INGREDIENTES DA API
-// ==========================================
 
 // A API entrega os ingredientes em campos separados
 // (strIngredient1, strMeasure1, ...). Aqui viram uma lista.
@@ -86,12 +64,6 @@ function organizarIngredientes(receita) {
 
     return ingredientes;
 }
-
-
-// ==========================================
-// 6. INTERPRETANDO QUANTIDADES
-// ==========================================
-
 // Entende: 2, 1.5, 1/2 e 1 1/2
 // Devolve a quantidade (número) e a unidade (texto restante)
 function interpretarMedida(medida) {
@@ -117,12 +89,7 @@ function interpretarMedida(medida) {
 
     return { quantidade: quantidade, unidade: achou[2] };
 }
-
-
-// ==========================================
-// 7. SELECT DE RECEITAS
-// ==========================================
-
+//Select de receitas (TDE 02)
 function carregarReceitas() {
 
     // Junta API + favoritos sem repetir (o Map usa o idMeal como chave)
@@ -147,11 +114,7 @@ function obterReceitaSelecionada() {
         receita => receita.idMeal === receitaSelect.value
     );
 }
-
-
-// ==========================================
-// 8. CALCULANDO AS NOVAS PORÇÕES
-// ==========================================
+//Calcula as novas porções
 
 function calcular() {
 
@@ -188,9 +151,6 @@ function calcular() {
     ingredientes.forEach(ingrediente => {
         const item = document.createElement("li");
         const medida = interpretarMedida(ingrediente.quantidade);
-
-        // Sem número no começo (ex.: "Pinch") ou com números extras
-        // na unidade (ex.: "175g/6oz"): mostra a medida original
         if (medida === null || /\d/.test(medida.unidade)) {
             item.textContent = `${ingrediente.nome}: ${ingrediente.quantidade || "Quantidade não informada"}`;
         } else {
@@ -210,11 +170,7 @@ function calcular() {
     resultado.hidden = false;
 }
 
-
-// ==========================================
-// 9. ESTATÍSTICAS
-// ==========================================
-
+// Estatísticas 
 // Média de ingredientes de uma lista de receitas
 function mediaIngredientes(lista) {
     let total = 0;
@@ -231,12 +187,7 @@ function calcularEstatisticas() {
     statMediaFavoritas.textContent = formatar(mediaIngredientes(favoritos));
     statMediaGeral.textContent = formatar(mediaIngredientes(receitasAPI));
 }
-
-
-// ==========================================
-// 10. LISTA DE FAVORITOS
-// ==========================================
-
+//Lista favs
 function mostrarReceitas() {
     listaReceitas.innerHTML = "";
 
@@ -278,10 +229,7 @@ listaReceitas.addEventListener("click", function(evento) {
     }
 });
 
-
-// ==========================================
-// 11. EVENTOS E INICIALIZAÇÃO
-// ==========================================
+//eventos
 
 botaoCalcular.addEventListener("click", calcular);
 
