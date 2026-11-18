@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Início - Site de Receitas</title>
+  <link rel="stylesheet" href="../CSS/style.css">
+</head>
+<body>
+  <header class="cabecalho">
+    <p class="nomesite">Site de Receitas</p>
+    <button id="botaoEscuro" type="button">Modo escuro</button>
+  </header>
+
+  <nav class="menu">
+    <ul>
+      <li><a href="index.html">Início</a></li>
+      <li><a href="contato.html">Contato</a></li>
+      <li><a href="receitas.html">Receitas</a></li>
+      <li><a href="ferramentas.html">Ferramentas</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <section class="apresentacao">
+      <h1>Bem-vindo ao Site de Receitas</h1>
+      <p>Aqui você pesquisa receitas de vários países, guarda as suas favoritas e ajusta os ingredientes para quantas pessoas quiser.</p>
+    </section>
+
+    <section class="secao">
+      <h2>O que você encontra no site</h2>
+      <div class="blocos">
+        <article class="cartao">
+          <h3>Receitas</h3>
+          <p>Pesquise pratos pelo nome, veja a foto, a categoria e a origem, e marque as suas favoritas.</p>
+          <p><a href="receitas.html">Ver receitas</a></p>
+        </article>
+        <article class="cartao">
+          <h3>Ferramentas</h3>
+          <p>Uma calculadora que ajusta os ingredientes de uma receita para o número de porções que você precisa.</p>
+          <p><a href="ferramentas.html">Abrir calculadora</a></p>
+        </article>
+        <article class="cartao">
+          <h3>Contato</h3>
+          <p>Tem uma dúvida ou uma sugestão de receita? Mande uma mensagem pelo formulário.</p>
+          <p><a href="contato.html">Falar com a gente</a></p>
+        </article>
+      </div>
+    </section>
+
+    <section class="secao">
+      <h2>O grupo</h2>
+      <!-- Trocar os nomes entre colchetes pelos nomes de verdade do grupo -->
+      <div class="blocos">
+        <article class="cartao">
+          <h3>Giovana Resnauer de Oliveira Costa</h3>
+          <p>API e página Receitas: busca, cartões e favoritos.</p>
+        </article>
+        <article class="cartao">
+          <h3>Nathaly Abreu de Souza</h3>
+          <p>Página Ferramentas: calculadora de porções e estatísticas.</p>
+        </article>
+        <article class="cartao">
+          <h3>Gabriel Men silva</h3>
+          <p>Estrutura e visual: página inicial, CSS, modo escuro e formulário de contato.</p>
+        </article>
+      </div>
+    </section>
+
+    <aside class="nota">
+      <p>As receitas vêm da API pública <a href="https://www.themealdb.com/" target="_blank">TheMealDB</a>, que é gratuita e não pede chave de acesso.</p>
+    </aside>
+  </main>
+
+  <footer class="rodape">
+    <p>Projeto Final - RA 3 - 2026</p>
+  </footer>
+
+  <script src="../JS/escuro.js"></script>
+</body>
+</html>
