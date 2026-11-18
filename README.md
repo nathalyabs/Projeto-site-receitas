@@ -11,9 +11,9 @@ Projeto Final - RA 3. Site de receitas que busca dados reais da API pública The
 
 | Integrante | O que fez |
 |---|---|
-| [Nome da integrante 1] | API e página Receitas: busca, cartões e favoritos |
-| [Nome da integrante 2] | Página Ferramentas: calculadora de porções e estatísticas (TDE 01) |
-| [Nome da integrante 3] | Estrutura e visual: página inicial, HTML semântico, CSS compartilhado, modo escuro com localStorage, página de contato e POST no JSONPlaceholder |
+| Giovana Resnauer | API e página Receitas: busca, cartões e favoritos |
+| Nathaly Abreu | Página Ferramentas: calculadora de porções e estatísticas (TDE 01) |
+| Gabriel Men | Estrutura e visual: página inicial, HTML semântico, CSS compartilhado, modo escuro com localStorage, página de contato e POST no JSONPlaceholder |
 
 ## Páginas e arquivos
 
