@@ -1,4 +1,3 @@
-
 const campoBusca = document.getElementById("campoBusca");
 const botaoBuscar = document.getElementById("botaoBuscar");
 const botaoFavoritos = document.getElementById("botaoFavoritos");
