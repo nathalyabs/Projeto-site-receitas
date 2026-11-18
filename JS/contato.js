@@ -1,8 +1,3 @@
-// ==========================================
-// 1. ELEMENTOS DO HTML
-// ==========================================
-
-// Endereço que recebe o POST (finge que salva e responde 201)
 const URL_CONTATO = "https://jsonplaceholder.typicode.com/posts";
 
 const formulario = document.getElementById("formularioContato");
@@ -16,24 +11,16 @@ const botaoEnviar = document.getElementById("botaoEnviar");
 const avisoErro = document.getElementById("avisoErro");
 const confirmacao = document.getElementById("confirmacao");
 
-
-// ==========================================
-// 2. VALIDAÇÃO
-// ==========================================
-
-// Marca o campo com a classe .erro (a borda fica vermelha) e mostra o aviso
 function marcarErro(campo, texto) {
     campo.classList.add("erro");
     avisoErro.textContent = texto;
 }
 
-// Devolve true se o formulário está certo e false se tem algum erro
 function validarFormulario() {
 
     const obrigatorios = [campoNome, campoEmail, campoAssunto, campoMensagem];
     let tudoPreenchido = true;
 
-    // Limpa os avisos da tentativa anterior
     avisoErro.textContent = "";
     campoTelefone.classList.remove("erro");
     campoPessoas.classList.remove("erro");
@@ -57,7 +44,6 @@ function validarFormulario() {
         return false;
     }
 
-    // Telefone é opcional, mas se preencher precisa ter DDD + número (10 ou 11 dígitos)
     const digitos = campoTelefone.value.replace(/\D/g, "");
 
     if (campoTelefone.value.trim() !== "" && digitos.length < 10) {
@@ -65,7 +51,6 @@ function validarFormulario() {
         return false;
     }
 
-    // Número de pessoas também é opcional
     const pessoas = Number(campoPessoas.value);
 
     if (campoPessoas.value !== "" && (pessoas < 1 || pessoas > 50)) {
@@ -80,12 +65,7 @@ function validarFormulario() {
 
     return true;
 }
-
-
-// ==========================================
 // 3. ENVIO (POST)
-// ==========================================
-
 async function enviarFormulario(evento) {
 
     // Não deixa a página recarregar
@@ -98,7 +78,6 @@ async function enviarFormulario(evento) {
         return;
     }
 
-    // Monta o objeto que vai virar JSON
     const dados = {
         title: campoAssunto.value,
         body: campoMensagem.value.trim(),
@@ -122,7 +101,6 @@ async function enviarFormulario(evento) {
             body: JSON.stringify(dados)
         });
 
-        // Confere o status antes de ler o JSON
         if (!resposta.ok) {
             throw new Error("Status " + resposta.status);
         }
@@ -131,8 +109,6 @@ async function enviarFormulario(evento) {
 
         confirmacao.textContent = "Mensagem enviada com sucesso! Status: " + resposta.status + " (Created). Código do envio: " + resultado.id;
         confirmacao.classList.add("sucesso");
-
-        // Limpa o formulário
         formulario.reset();
 
     } catch (erro) {
@@ -144,14 +120,7 @@ async function enviarFormulario(evento) {
     botaoEnviar.disabled = false;
 }
 
-
-// ==========================================
-// 4. EVENTOS
-// ==========================================
-
 formulario.addEventListener("submit", enviarFormulario);
-
-// Quando sai do campo de e-mail, já avisa se está errado
 campoEmail.addEventListener("blur", function() {
 
     campoEmail.classList.remove("erro");
@@ -161,7 +130,6 @@ campoEmail.addEventListener("blur", function() {
     }
 });
 
-// Ao começar a digitar, tira a borda vermelha do campo
 formulario.addEventListener("input", function(evento) {
     evento.target.classList.remove("erro");
 });
