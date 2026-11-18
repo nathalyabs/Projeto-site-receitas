@@ -5,7 +5,6 @@
     box-sizing: border-box;
 }
 
-
 body {
     font-family: Arial, sans-serif;
     background-color: #f5f5f5;
@@ -133,9 +132,6 @@ h2 {
   padding: 20px;
   gap: 100px;
   justify-content: center;
-
-
-  
 }
 
 .calculadora {
@@ -143,7 +139,6 @@ h2 {
   flex-direction: column;
   gap: 20px;
   padding: 20px;
-
 }
 
 .Partefavoritos {
@@ -174,14 +169,6 @@ padding: 12px;
   gap: 20px;
 }
 
-
-/* ==========================================
-   PARTE DA INTEGRANTE 3
-   (cabeçalho, rodapé, início, contato e modo escuro)
-   ========================================== */
-
-/* ---------- Cabeçalho (Flexbox) ---------- */
-
 .cabecalho {
     display: flex;
     justify-content: space-between;
@@ -210,8 +197,6 @@ padding: 12px;
     background-color: #f5d0d0;
 }
 
-/* ---------- Rodapé ---------- */
-
 .rodape {
     margin-top: 40px;
     padding: 20px;
@@ -220,8 +205,6 @@ padding: 12px;
     text-align: center;
     font-size: 14px;
 }
-
-/* ---------- Página Início ---------- */
 
 .apresentacao {
     background-color: white;
@@ -253,7 +236,6 @@ padding: 12px;
     gap: 20px;
 }
 
-/* combinador descendente: só os cartões que estão dentro de .blocos */
 .blocos .cartao {
     flex: 1 1 250px;
 }
@@ -270,8 +252,6 @@ padding: 12px;
     padding: 15px 20px;
 }
 
-/* ---------- Página Contato ---------- */
-
 main > h1 {
     margin-bottom: 10px;
 }
@@ -287,8 +267,6 @@ main > h1 {
     flex-wrap: wrap;
     gap: 20px;
 }
-
-/* combinador filho (>): só os cartões que estão direto dentro de .contato */
 .contato > article {
     flex: 2 1 350px;
 }
@@ -297,7 +275,6 @@ main > h1 {
     flex: 1 1 220px;
 }
 
-/* o título do cartão fica alinhado com o resto do conteúdo */
 .contato h2 {
     padding: 12px 12px 0;
 }
@@ -319,7 +296,6 @@ main > h1 {
     font-weight: bold;
 }
 
-/* combinador irmão adjacente (+): campo que vem logo depois do label */
 .formulario label + input,
 .formulario label + select,
 .formulario label + textarea {
@@ -341,19 +317,16 @@ main > h1 {
     resize: vertical;
 }
 
-/* seletor de atributo */
 input[type="email"],
 input[type="tel"] {
     font-size: 14px;
 }
 
-/* pseudo-elemento ::placeholder */
 .formulario input::placeholder,
 .formulario textarea::placeholder {
     color: #888;
 }
 
-/* pseudo-classe :focus */
 .formulario input:focus,
 .formulario select:focus,
 .formulario textarea:focus {
@@ -361,7 +334,6 @@ input[type="tel"] {
     border-color: #1a5fd0;
 }
 
-/* campo com erro (a classe é ligada pelo contato.js) */
 .formulario .erro {
     border: 2px solid #be0606;
 }
@@ -383,8 +355,6 @@ input[type="tel"] {
     opacity: 0.6;
     cursor: wait;
 }
-
-/* ---------- Modo escuro (classe .escuro ligada no body pelo escuro.js) ---------- */
 
 body.escuro {
     background-color: #1e1e1e;
@@ -433,8 +403,6 @@ body.escuro {
     color: #d9f2e0;
 }
 
-/* ---------- Celular ---------- */
-
 @media (max-width: 700px) {
     .cabecalho {
         flex-wrap: wrap;
@@ -446,7 +414,6 @@ body.escuro {
         gap: 15px;
     }
 
-    /* as duas colunas da página Ferramentas ficam uma embaixo da outra */
     .ferramentas {
         flex-direction: column;
         gap: 20px;
