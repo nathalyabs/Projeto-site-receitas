@@ -1,3 +1,6 @@
+// Quantidade mínima de ingredientes para a estatística "receitas mais elaboradas"
+const MINIMO_INGREDIENTES = 8;
+
 let receitasAPI = JSON.parse(localStorage.getItem("receitasAPI")) || [];
 let favoritos = JSON.parse(localStorage.getItem("favoritos")) || [];
 
@@ -16,6 +19,7 @@ const listaReceitas = document.getElementById("listaReceitas");
 const statQtdFavoritas = document.getElementById("statQtdFavoritas");
 const statMediaFavoritas = document.getElementById("statMediaFavoritas");
 const statMediaGeral = document.getElementById("statMediaGeral");
+const statFavoritasLongas = document.getElementById("statFavoritasLongas");
 
 // Funções matemáticas básicas(TDE 01)
 
@@ -33,9 +37,17 @@ function multiplicar(a, b) {
 
 function dividir(a, b) {
     if (b === 0) {
+        // Divisão por zero: mostra uma mensagem na tela em vez de devolver Infinity
+        mensagemErro.textContent = "Não é possível dividir por zero.";
         return 0;
     }
     return a / b;
+}
+
+// Função que recebe outra função como parâmetro (callback):
+// "operacao" pode ser somar, subtrair, multiplicar ou dividir
+function calcularOperacao(a, b, operacao) {
+    return operacao(a, b);
 }
 
 //Formatando números(2 casas decimais e vírgula como separador decimal)
@@ -146,7 +158,7 @@ function calcular() {
     }
 
     // Fator = porções desejadas ÷ porções originais
-    const fator = dividir(desejada, original);
+    const fator = calcularOperacao(desejada, original, dividir);
 
     ingredientes.forEach(ingrediente => {
         const item = document.createElement("li");
@@ -154,7 +166,7 @@ function calcular() {
         if (medida === null || /\d/.test(medida.unidade)) {
             item.textContent = `${ingrediente.nome}: ${ingrediente.quantidade || "Quantidade não informada"}`;
         } else {
-            const novaQuantidade = multiplicar(medida.quantidade, fator);
+            const novaQuantidade = calcularOperacao(medida.quantidade, fator, multiplicar);
 
             // Diferença entre a quantidade nova e a original
             const diferenca = subtrair(novaQuantidade, medida.quantidade);
@@ -179,13 +191,24 @@ function mediaIngredientes(lista) {
         total = somar(total, organizarIngredientes(receita).length);
     });
 
+    // Lista vazia: devolve 0 sem tentar dividir por zero
+    if (lista.length === 0) {
+        return 0;
+    }
+
     return dividir(total, lista.length);
+}
+
+// Filtra as receitas que têm pelo menos "minimo" ingredientes
+function filtrarPorIngredientes(lista, minimo) {
+    return lista.filter(receita => organizarIngredientes(receita).length >= minimo);
 }
 
 function calcularEstatisticas() {
     statQtdFavoritas.textContent = favoritos.length;
     statMediaFavoritas.textContent = formatar(mediaIngredientes(favoritos));
     statMediaGeral.textContent = formatar(mediaIngredientes(receitasAPI));
+    statFavoritasLongas.textContent = filtrarPorIngredientes(favoritos, MINIMO_INGREDIENTES).length;
 }
 //Lista favs
 function mostrarReceitas() {

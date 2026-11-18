@@ -24,9 +24,17 @@ async function buscarReceitas(nome) {
             `https://www.themealdb.com/api/json/v1/1/search.php?s=${encodeURIComponent(nome)}`
         );
 
+        // Confere o status antes de ler o JSON
+        if (!resposta.ok) {
+            throw new Error("Status " + resposta.status);
+        }
+
         const dados = await resposta.json();
 
         receitas = dados.meals || [];
+
+        // Salva as receitas encontradas para a página Ferramentas usar
+        localStorage.setItem("receitasAPI", JSON.stringify(receitas));
 
         if (receitas.length === 0) {
             mensagem.textContent = "Nenhuma receita encontrada.";
@@ -38,8 +46,6 @@ async function buscarReceitas(nome) {
     } catch (erro) {
 
         mensagem.textContent = "Erro ao carregar as receitas.";
-
-        console.log("Erro:", erro);
     }
 }
 
